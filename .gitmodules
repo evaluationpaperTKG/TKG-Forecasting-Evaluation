@@ -10,3 +10,6 @@
 [submodule "CyGNet"]
 	path = CyGNet
 	url = https://github.com/evaluationpaperTKG/CyGNet.git
+[submodule "TLogic"]
+	path = TLogic
+	url = https://github.com/evaluationpaperTKG/TLogic.git
