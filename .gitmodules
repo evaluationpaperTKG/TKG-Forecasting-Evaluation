@@ -7,3 +7,6 @@
 [submodule "xERTE"]
 	path = xERTE
 	url = https://github.com/evaluationpaperTKG/xERTE.git
+[submodule "CyGNet"]
+	path = CyGNet
+	url = https://github.com/evaluationpaperTKG/CyGNet.git
