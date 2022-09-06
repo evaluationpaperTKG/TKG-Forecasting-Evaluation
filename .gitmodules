@@ -16,3 +16,6 @@
 [submodule "TANGO"]
 	path = TANGO
 	url = https://github.com/evaluationpaperTKG/TANGO.git
+[submodule "Timetraveler"]
+	path = Timetraveler
+	url = https://github.com/evaluationpaperTKG/Timetraveler.git
