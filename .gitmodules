@@ -13,3 +13,6 @@
 [submodule "TLogic"]
 	path = TLogic
 	url = https://github.com/evaluationpaperTKG/TLogic.git
+[submodule "TANGO"]
+	path = TANGO
+	url = https://github.com/evaluationpaperTKG/TANGO.git
