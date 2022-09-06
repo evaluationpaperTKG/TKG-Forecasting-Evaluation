@@ -4,3 +4,6 @@
 [submodule "RE-GCN"]
 	path = RE-GCN
 	url = https://github.com/evaluationpaperTKG/RE-GCN.git
+[submodule "xERTE"]
+	path = xERTE
+	url = https://github.com/evaluationpaperTKG/xERTE.git
