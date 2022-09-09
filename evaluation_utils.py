@@ -1,27 +1,45 @@
+# """/*
+#  *     TKG Forecasting Evaluation
+#  *
+#  *        File: evaluation_utils.py
+#  *
+#  *     Authors: Deleted for purposes of anonymity 
+#  *
+#  *     Proprietor: Deleted for purposes of anonymity --- PROPRIETARY INFORMATION
+#  * 
+#  * The software and its source code contain valuable trade secrets and shall be maintained in
+#  * confidence and treated as confidential information. The software may only be used for 
+#  * evaluation and/or testing purposes, unless otherwise explicitly stated in the terms of a
+#  * license agreement or nondisclosure agreement with the proprietor of the software. 
+#  * Any unauthorized publication, transfer to third parties, or duplication of the object or
+#  * source code---either totally or in part---is strictly prohibited.
+#  *
+#  *     Copyright (c) 2021 Proprietor: Deleted for purposes of anonymity
+#  *     All Rights Reserved.
+#  *
+#  * THE PROPRIETOR DISCLAIMS ALL WARRANTIES, EITHER EXPRESS OR 
+#  * IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY 
+#  * AND FITNESS FOR A PARTICULAR PURPOSE AND THE WARRANTY AGAINST LATENT 
+#  * DEFECTS, WITH RESPECT TO THE PROGRAM AND ANY ACCOMPANYING DOCUMENTATION. 
+#  * 
+#  * NO LIABILITY FOR CONSEQUENTIAL DAMAGES:
+#  * IN NO EVENT SHALL THE PROPRIETOR OR ANY OF ITS SUBSIDIARIES BE 
+#  * LIABLE FOR ANY DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES
+#  * FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF INFORMATION, OR
+#  * OTHER PECUNIARY LOSS AND INDIRECT, CONSEQUENTIAL, INCIDENTAL,
+#  * ECONOMIC OR PUNITIVE DAMAGES) ARISING OUT OF THE USE OF OR INABILITY
+#  * TO USE THIS PROGRAM, EVEN IF the proprietor HAS BEEN ADVISED OF
+#  * THE POSSIBILITY OF SUCH DAMAGES.
+#  * 
+#  * For purposes of anonymity, the identity of the proprietor is not given herewith. 
+#  * The identity of the proprietor will be given once the review of the 
+#  * conference submission is completed. 
+#  *
+#  * THIS HEADER MAY NOT BE EXTRACTED OR MODIFIED IN ANY WAY.
+#  */"""
+
 import torch
 import numpy as np
-def store_scores(directory:str, method_name:str, query_name:str, dataset_name:str, ground_truth, predictions):
-    """   THIS IS OUTDATED AND NO LONGER USED. Istead we store all queries in one dct
-    for given queries: store the scores for each prediction in a file.
-    query_id: e.g. sid_rid_xxx_ts, sid_xxx_oid_ts, sid_rid_xxx_ts, sid_rid_oid_xxx
-    store dictionary, with query_id = name    
-    dict with keys: 'predictions' 'ground_truth' and values: tensors
-    :param directory: [str] directory, usually e.g. '/home/jgastinger/tempg/Baseline Evaluation'
-    :param method_name: [str] e.g. renet
-    :param query_name: [str] e.g. "xxx_1_235_24" -> the xxx is the element in question; order: subid_relid_obid_timestep
-    :param ground truth: tensor e.g. tensor(4759, device='cuda:0') tensor with the id of the ground truth node
-    :param predictions: tensor with predicted scores, one per node; e.g. tensor([ 5.3042,  6....='cuda:0') torch.Size([23033])
-    """
-    method_name =method_name
-    query_name = query_name
-    ground_truth =ground_truth
-    predictions = predictions
-    name = method_name + '_' + query_name +'.pt'
-    dir_results = directory + '/resultscores' + '/' + dataset_name
-    location = dir_results + '/' + name
-    
-    torch.save({"ground_truth": ground_truth, "predictions":predictions}, location)
-    #https://stackoverflow.com/questions/62932368/best-way-to-save-many-tensors-of-different-shapes
 
 
 def create_scores_tensor(predictions_dict, num_nodes, device=None):
@@ -70,7 +88,7 @@ def query_name_from_quadruple(quad, num_rels, plus_one_flag=False):
     """
     rel = quad[1]
     ts = quad[3]
-    if rel > (num_rels-1): #FALSCH RUM
+    if rel > (num_rels-1): #wrong direction
         
         ob_pred = False
         if plus_one_flag == False:
@@ -102,9 +120,6 @@ def get_total_number(inPath, fileName):
             line_split = line.split()
             return int(line_split[0]), int(line_split[1])
 
-def update_scores(query, results, scores_dict={}):
-    
-    pass
 
 def load_scores(directory:str, method_name:str, dataset:str, query_name:str, device:str):
     
@@ -127,12 +142,3 @@ def load_scores(directory:str, method_name:str, dataset:str, query_name:str, dev
     gt = scores_dict['ground_truth']
     return scores, gt
 
-def compute_ranks():
-    #for the different filter settings
-    pass
-
-def load_test_set():
-    pass
-
-def plot_results():
-    pass
