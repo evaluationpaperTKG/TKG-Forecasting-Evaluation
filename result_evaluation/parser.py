@@ -135,7 +135,7 @@ if __name__ == '__main__':
         for pkl_name, report in sub_dict.items():
             print(pkl_name, '\n', '=' * 100)
             _setting, _, _dataset, _method = helper_function(pkl_name)
-            if _setting is None:  # special constraint check that avoids pkl files with `True` in their names (Julia)
+            if _setting is None:  # special constraint check that avoids pkl files with `True` in their names (eval_paper_authos)
                 continue
 
             for filter, values in report.items():
