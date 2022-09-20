@@ -349,13 +349,13 @@ def eval(args):
                     os.chdir(model_dir)
 
                     logging.debug(f'Learning parameters: {args_list[0]}')
-                    os.system(f'python3 learn.py>>tlogictest.txt {args_list[0]}')
+                    os.system(f'python3 learn.py {args_list[0]}')
 
                     logging.debug(f'Application parameters: {args_list[1]}')
-                    os.system(f'python3 apply.py>>tlogictest.txt {args_list[1]}')
+                    os.system(f'python3 apply.py {args_list[1]}')
 
                     logging.debug(f'Eval parameters: {args_list[2]}')
-                    os.system(f'python3 evaluate.py>>tlogictest.txt {args_list[2]}')
+                    os.system(f'python3 evaluate.py {args_list[2]}')
 
             elif model == "RE-GCN":
                 feedgt_list = [False, True]
