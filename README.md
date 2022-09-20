@@ -16,8 +16,6 @@ TKG Forecasting Evaluation Paper
 ## Run Experiments
 * run ./run_exp.sh
 
-## testing for Xerte and Tango
-
 ## Additional Information
 * Each Models datasets are stored in the respective Models folder
 * Experiments might run for long time, with total runtimes of multiple weeks
@@ -26,11 +24,18 @@ TKG Forecasting Evaluation Paper
 ## Evaluation
 * See Readme in result_evaluation
 
+## testing for xERTE 
+for xERTE: 
+* modify xERTE/tKGR/load_and_test.py  according to the comments (A), (B), (C) to specify dictionaries and best epochs
+* run xERTE/tKGR/load_and_test.py 
+
 ## Add new model
-* Copy Code to this folder or create a submodule with the respective repository
+* Copy Code to this folder or, ideally, create a git submodule of a fork of the respective repository
 * Add the datasets to the Code Folder
+* Create a conda environment and install all dependencies provided by the original authors in this environment
 * Make sure to fulfill all items from the checklist in paper, supplementary material
 * Log the scores for each test query as implemented in the other models (see git diff) during testing, to a .pkl file, with keys: querys, values: scores and gt. For logging the scores your can use the methods as provided in evaluation_utils.py
-* Create a conda environment and install all dependencies in this environment
-* add the model and hyperparameters to run.py
-* add the model and settings to run_exp.sh
+* Add the model and hyperparameters to run.py (in eval() you need to add the model to the d_dict, and add an elif model == 'newmodel':  .... ideally, you set the model args in get_arguments_list())
+* Add the model and settings to run_exp.sh
+For evaluation of the new model:
+* Follow steps in the results_evaluation Readme

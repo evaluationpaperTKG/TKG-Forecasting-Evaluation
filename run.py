@@ -339,7 +339,7 @@ def eval(args):
 
             elif model == 'TLogic':
                 setting ='time'
-                model_dir = os.path.join(root_dir, model, 'TLogic-main', 'mycode')
+                model_dir = os.path.join(root_dir, model, 'mycode')
                 feedgt_list = [False, True]
                 window = None
                 for feedgt in feedgt_list:
@@ -394,7 +394,7 @@ def eval(args):
                     os.system('python {} --dataset {} {}'.format('get_historical_vocabulary.py', dataset, args_list[0]))
                     for args in args_list:
                          logging.debug(f'Training parameters: {args}')
-                         os.system('python {} --dataset {} {}'.format('train.py', dataset, args))
+                     #    os.system('python {} --dataset {} {}'.format('train.py', dataset, args))
 
                     # ----------------------------------------------------------Test
                     for feedgt in feedgt_list:
@@ -436,7 +436,7 @@ def eval(args):
 
             elif model == 'Timetraveler':
                 settings = ['time'] # trains on time-aware filter 
-                os.chdir(os.path.join(model_dir,'TITer-master'))
+                os.chdir(os.path.join(model_dir))
                 for setting in settings:
                     feedgt_list = [True] # we only know single-step setting   
                     for feedgt in feedgt_list:
