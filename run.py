@@ -394,7 +394,7 @@ def eval(args):
                     os.system('python {} --dataset {} {}'.format('get_historical_vocabulary.py', dataset, args_list[0]))
                     for args in args_list:
                          logging.debug(f'Training parameters: {args}')
-                     #    os.system('python {} --dataset {} {}'.format('train.py', dataset, args))
+                         os.system('python {} --dataset {} {}'.format('train.py', dataset, args))
 
                     # ----------------------------------------------------------Test
                     for feedgt in feedgt_list:
