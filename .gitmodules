@@ -19,3 +19,6 @@
 [submodule "Timetraveler"]
 	path = Timetraveler
 	url = https://github.com/evaluationpaperTKG/Timetraveler.git
+[submodule "CEN"]
+	path = CEN
+	url = https://github.com/evaluationpaperTKG/CEN.git
