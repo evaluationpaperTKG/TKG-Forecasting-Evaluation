@@ -137,7 +137,7 @@ def setup(dataset_name: str, pickle_file: dict):
 
 
 if __name__ == '__main__':
-    dir_names = ['TANGO', 'RE-GCN', 'xERTE', 'TLogic', 'CyGNet', 'RE-Net', 'Timetraveler']  
+    dir_names = ['TANGO', 'RE-GCN', 'xERTE', 'TLogic', 'CyGNet', 'RE-Net', 'Timetraveler', 'CEN']  
 
     output_filename = 'output4.json'
 

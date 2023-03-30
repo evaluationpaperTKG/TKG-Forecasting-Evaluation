@@ -36,7 +36,8 @@
  * conference submission is completed. 
  *
  * THIS HEADER MAY NOT BE EXTRACTED OR MODIFIED IN ANY WAY.
- */"""
+ */
+"""
 
 import os
 import json
@@ -52,7 +53,8 @@ def helper_function(filename: str) -> tuple:
     
     filename = filename.split('-')  # Idea is to use these keywords to decide the location of values in dataframe
     _setting, _filtering, _dataset, _method = 'NA', 'NA', 'NA', 'NA'
-
+    if 'cen' in filename:
+        print(filename)
     for item in filename:
         _setting = item if item in setting else _setting
         _filtering = item if item in filtering else _filtering
@@ -102,7 +104,7 @@ if __name__ == '__main__':
         jsonfile = json.load(stream)
     normalize_sub_dicts(jsonfile)
 
-    setting = ['multistep', 'singlestep']
+    setting = ['multistep', 'singlestep', 'singlesteponline']
     filtering = ['time', 'raw', 'static']
     metrics = ['mrr', 'hits@1', 'hits@3', 'hits@10']
     datasets = ['GDELT', 'YAGO', 'WIKI', 'ICEWS14', 'ICEWS18']
@@ -113,7 +115,8 @@ if __name__ == '__main__':
         'CyGNet': 'cygnet',
         'TLogic': 'tlogic',
         'TANGO': 'tango',
-        'Timetraveler': 'titer'        
+        'Timetraveler': 'titer',
+        'CEN': 'cen'        
     }
     inv_dict = {value: key for key, value in method_names.items()}  # used in helper function
     assert len(method_names.keys()) == len(jsonfile.keys()), 'Reports for all methods not present in jsonfile!'
@@ -135,7 +138,7 @@ if __name__ == '__main__':
         for pkl_name, report in sub_dict.items():
             print(pkl_name, '\n', '=' * 100)
             _setting, _, _dataset, _method = helper_function(pkl_name)
-            if _setting is None:  # special constraint check that avoids pkl files with `True` in their names (eval_paper_authos)
+            if _setting is None:  # special constraint check that avoids pkl files with `True` in their names
                 continue
 
             for filter, values in report.items():
