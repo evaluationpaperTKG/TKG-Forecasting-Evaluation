@@ -136,6 +136,37 @@ def get_arguments_list(dataset, model, gpu, setting, feedgt='False', runnr=0, wi
             args_list = [f'--train-history-len 10 --test-history-len 10 --dilate-len 1 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm --weight 0.5  --entity-prediction --relation-prediction --add-static-graph --angle 10 --discount 1 --task-weight 0.7 --gpu {gpu} --runnr {runnr}',
                         f'--train-history-len 10 --test-history-len 10 --dilate-len 1 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm --weight 0.5  --entity-prediction --relation-prediction --add-static-graph --angle 10 --discount 1 --task-weight 0.7 --gpu {gpu} --test --runnr {runnr}',
                         f'--train-history-len 10 --test-history-len 10 --dilate-len 1 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm --weight 0.5  --entity-prediction --relation-prediction --add-static-graph --angle 10 --discount 1 --task-weight 0.7 --gpu {gpu} --test --topk 0 --runnr {runnr}']
+        elif model == 'CEN':
+            if dataset == 'ICEWS14':
+                args_list = [f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 10 --test -1  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 10 --test 0  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 7 --test 2  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 7 --test 3  --ft_lr=0.001 --norm_weight 1 --gpu {gpu}',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 7 --test 4  --ft_lr=0.001 --norm_weight 1 --gpu {gpu}']
+            elif dataset == 'ICEWS18':
+                args_list = [f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 10 --test -1  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 10 --test 0  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 6 --test 2  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 6 --test 3  --ft_lr=0.001 --norm_weight 1 --gpu {gpu}',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 6 --test 4  --ft_lr=0.001 --norm_weight 1 --gpu {gpu}']
+            elif dataset == 'WIKI':
+                args_list = [f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 2 --train-history-len 10 --test-history-len 10 --test -1  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 2 --train-history-len 10 --test-history-len 10 --test 0  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 2 --train-history-len 10 --test-history-len 2 --test 2  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 2 --train-history-len 10 --test-history-len 2 --test 3  --ft_lr=0.001 --norm_weight 1 --gpu {gpu}',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 2 --train-history-len 10 --test-history-len 2 --test 4  --ft_lr=0.001 --norm_weight 1 --gpu {gpu}']
+            elif dataset == 'GDELT': #hyperparams as for WIKI
+                args_list = [f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 2 --train-history-len 10 --test-history-len 10 --test -1  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 2 --train-history-len 10 --test-history-len 10 --test 0  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 2 --train-history-len 10 --test-history-len 10 --test 2  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 2 --train-history-len 10 --test-history-len 10 --test 3  --ft_lr=0.001 --norm_weight 1 --gpu {gpu}',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 2 --train-history-len 10 --test-history-len 10 --test 4  --ft_lr=0.001 --norm_weight 1 --gpu {gpu}']
+            if dataset == 'YAGO': #hyperparams as for ICEWS14
+                args_list = [f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 10 --test -1  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 10 --test 0  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 3 --test 2  --ft_lr=0.001 --norm_weight 1 --gpu {gpu} ',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 3 --test 3  --ft_lr=0.001 --norm_weight 1 --gpu {gpu}',
+                            f'--dilate-len 1 --n-epochs 30 --lr 0.001 --n-layers 2 --evaluate-every 1 --n-hidden 200 --self-loop --decoder convtranse --encoder uvrgcn --layer-norm  --entity-prediction -d {dataset} --start-history-len 3 --train-history-len 10 --test-history-len 3 --test 4  --ft_lr=0.001 --norm_weight 1 --gpu {gpu}']            
     elif model == 'CyGNet':
         if dataset == 'ICEWS18':
             args_list = [f'--entity object --time-stamp 24 -alpha 0.8 -lr 0.001 --n-epoch 30 --hidden-dim 200 -gpu {gpu} --batch-size 1024 --counts 4 --valid-epoch 5 --setting {setting}',
@@ -274,7 +305,7 @@ def eval(args):
     time.sleep(5)
     root_dir = os.getcwd()
 
-    d_dict = {1: 'CyGNet', 2: 'xERTE', 3: 'RE-Net', 4: 'RE-GCN', 5: 'TLogic', 6:'TANGO', 7:'Timetraveler'}
+    d_dict = {1: 'CyGNet', 2: 'xERTE', 3: 'RE-Net', 4: 'RE-GCN', 5: 'TLogic', 6:'TANGO', 7:'Timetraveler', 8:'CEN'}
 
     model = int(args.model)
     model = d_dict[model]
@@ -380,8 +411,37 @@ def eval(args):
                     else:
                         logging.debug(f'Do NOT Feed the GT for testing: multi step')
                         logging.debug(f'Testing parameters: {args_list[2]}')
-                        os.system('python main.py>>regcntest.txt -d {} {}'.format(dataset, args_list[2]))
-            
+                        os.system('python main.py>>regcntest.txt -d {} {}'.format(dataset, args_list[2]))            
+            elif model == "CEN":
+                feedgt_list = [False, True]
+                logging.debug('{} {} - {} - {}'.format('_' * 30, model, dataset, 'Raw and Time ONLY'))
+                args_list = get_arguments_list(dataset, model, gpu, setting="Time")
+                # 0th index: Pretrain models with the minimum length.
+                # 1st index: Curriculum Training.
+                # 2nd index: Evaluate the offline models
+                # 3rd index: Online training data: First, train the models with timestamps in the valid set
+                # 4th index: Online training data: Then, train the models with timestamps in the test set
+                # ----------------------------------------------------------Train
+                os.chdir(os.path.join(model_dir, 'src'))
+                logging.debug(f'Pre-Training parameters: {args_list[0]}')
+                os.system('python main.py -d {} {}'.format(dataset, args_list[0]))
+                logging.debug(f'Curriculum Training: {args_list[1]}')
+                os.system('python main.py -d {} {}'.format(dataset, args_list[1]))
+
+                for feedgt in feedgt_list:
+                    # ----------------------------------------------------------Test
+                    if feedgt == False:
+                        logging.debug(f'Do not Feed the GT for testing: multi step')
+                        logging.debug(f'Testing parameters: {args_list[2]}')
+                        os.system('python main.py>>centest_entityloss.txt -d {} {}'.format(dataset, args_list[2]))
+                    else:
+
+                        logging.debug(f'Online Training parameters: {args_list[3]}')
+                        os.system('python main.py -d {} {}'.format(dataset, args_list[3]))
+                    
+                        logging.debug(f'Do Feed the GT for testing: online learning/ step')
+                        logging.debug(f'Testing parameters: {args_list[4]}')
+                        os.system('python main.py>>centest_entityloss.txt -d {} {}'.format(dataset, args_list[4]))   
             elif model == "CyGNet":
                 settings = ['time', 'static', 'raw'] 
                 for setting in settings:
