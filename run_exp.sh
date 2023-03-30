@@ -40,7 +40,7 @@
 
 # '''
 #     # parser.add_argument("--gpu", type=int, default=0, help="gpu")
-#     # parser.add_argument("--model", type=int, default=3, help="1: 'CyGNet', 2: 'xERTE', 3: 'RE-Net', 4: 'RE-GCN', 5: 'Tlogic', 6:'TANGO', 7:Timetraveler")
+#     # parser.add_argument("--model", type=int, default=3, help="1: 'CyGNet', 2: 'xERTE', 3: 'RE-Net', 4: 'RE-GCN', 5: 'Tlogic', 6:'TANGO', 7:'Timetraveler', 8:'CEN'")
 #     # parser.add_argument("--num_seeds", type=int, default=1, help="number of repetitions 1,...,10")
 #     # parser.add_argument("--exp_name_int", type=int, default=0, help="experiment name. if higher than 0: will be added to the run-num for logging")
 #     # parser.add_argument("--dataset_ids", type=int, nargs="+", default=0, help="1: 'ICEWS18', 2:'ICEWS05-15', 3:'ICEWS14', 4:'YAGO', 5:'WIKI', 6:'GDELT', 0:'all'")
@@ -77,3 +77,7 @@ python3 run.py --gpu 0 --model 3 --num_seeds 1 --exp_name_int 0 --dataset_ids 3 
 # xerte
 conda activate xerte
 python3 run.py --gpu 0 --model 2 --num_seeds 1 --exp_name_int 0 --dataset_ids 3 #1 3 4 5 6
+
+# cen
+conda activate cen
+python3 run.py --gpu 0 --model 8 --num_seeds 1 --exp_name_int 0 --dataset_ids 3 #1 3 4 5 6
